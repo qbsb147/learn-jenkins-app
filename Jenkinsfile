@@ -34,7 +34,7 @@ pipeline {
 
             steps {
                 sh '''
-                    cat 'Test stage'
+                    echo 'Test stage'
                 '''
             }
         }
