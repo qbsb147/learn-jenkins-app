@@ -3,7 +3,6 @@ pipeline {
 
     stages {
         stage('Build') {
-
             agent {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
@@ -24,7 +23,6 @@ pipeline {
         }
 
         stage('Test'){
-
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -45,8 +43,8 @@ pipeline {
             steps {
                 sh '''
                     npm install -g serve
-                    serve -s build
-                    npx playwright test 
+                    node_modules/.bin/serve -s build
+                    npx playwright test
                 '''
             }
         }
